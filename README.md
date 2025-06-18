@@ -1,3 +1,19 @@
-# file:///C:/Users/User/Downloads/Leonardo%20agrinho/agrinho%202025/index.html
-Projeto agrinho 2025
-Quiz interativo agrinho
+# Quizz para celebrar a conexão campo-cidade
+
+Simples quiz desenvolvido com html, css, e javascript.
+
+### Techs
+
+- HTML5
+- CSS3
+- JavaScript
+
+### Author
+
+**Leonardo dos Santos Silva**
+
+- Email: leonardo.santos.silva13@escola.pr.gov.br
+
+### License
+
+Copyright © 2025 Leonardo dos Santos Silva

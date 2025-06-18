@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz: Campo ou Cidade?</title>
+    <style>
+        body {
+            background-color: #e6f4ea;
+            font-family: Arial, sans-serif;
+        }
+        .quiz-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .question-box, .intro-box {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+        }
+        .question-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .intro-box img {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            margin: 10px auto;
+        }
+        button {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #d2e5d2;
+        }
+        .btn-letter {
+            background-color: #2a5934;
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .selected {
+            background-color: #2a5934 !important;
+            color: white;
+        }
+        .result-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 30px;
+        }
+        .show-result {
+            background-color: #2eb94c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .show-result:hover {
+            background-color: #2a5934;
+        }
+        /* Botão refazer com cor diferente */
+        #reset-button {
+            background-color: #f44336;
+        }
+        #reset-button:hover {
+            background-color: #b32a1a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+
+        <!-- 🖼️ CAPA EXPLICATIVA -->
+        <div class="intro-box">
+            <h2>Agrinho 2025 — Quiz Interativo sobre Conexão Campo-Cidade</h2>
+            <p>
+                Este trabalho tem como objetivo refletir sobre a conexão entre o <strong>campo</strong> e a <strong>cidade</strong>, 
+                entendendo como ambos se complementam no nosso dia a dia. <br><br>
+                Ao responder este quiz, você descobrirá se seu perfil combina mais com o campo, com a cidade ou se possui um equilíbrio entre os dois.
+            </p>
+            <p><strong>Motivo:</strong> Conscientizar sobre a importância do campo e da cidade trabalhando juntos para um mundo mais sustentável.</p>
+            <img src="f3b140b10b786e83d8a30f5dfca52768_lg_original_.jpg" alt="Logo Concurso Agrinho" />
+        </div>
+
+        <!-- 🔥 PERGUNTAS -->
+        <div class="question-box">
+            <div class="question-title">1 — Onde você se sente mais confortável?</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> Na natureza, cercado de árvores e animais.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> Na cidade, com movimento e tecnologia.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">2 — Qual seu som preferido?</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> O canto dos pássaros.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> O som da cidade e das pessoas.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">3 — Você prefere acordar com:</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> O nascer do sol e canto dos galos.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> O despertador e movimento da cidade.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">4 — Seu lazer ideal é:</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> Fazer trilhas, cuidar de plantas ou pescar.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> Ir ao shopping, cinema ou cafeterias.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">5 — O que te traz mais paz?</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> Ver um pôr do sol no campo.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> Assistir séries e ouvir música na cidade.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">6 — Comida que você prefere:</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> Comida caseira, feita no fogão a lenha.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> Comida de restaurantes modernos.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">7 — Se pudesse escolher onde morar:</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> Uma chácara com bastante verde.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> Um apartamento no centro.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">8 — Você se sente mais energizado:</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> Cuidando de plantas, animais ou jardinagem.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> Em ambientes tecnológicos ou eventos urbanos.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">9 — Trânsito para você é:</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> Algo estressante e que evito.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> Parte do dia a dia, já estou acostumado.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">10 — O que você acha mais bonito?</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> Paisagens naturais, plantações e rios.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> Prédios altos, luzes e arquitetura moderna.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">11 — Seu meio de transporte favorito é:</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> Bicicleta, cavalo ou caminhadas.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> Metrô, ônibus ou carro.</button>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">12 — Qual dessas opções te define melhor?</div>
+            <button onclick="selectAnswer(this, 'campo')"><span class="btn-letter">A</span> Amo simplicidade, natureza e vida tranquila.</button>
+            <button onclick="selectAnswer(this, 'cidade')"><span class="btn-letter">B</span> Gosto de agitação, novidades e movimento.</button>
+        </div>
+
+        <!-- 🔥 BOTÕES DE ENVIO E REFAZER -->
+        <div class="result-box">
+            <button id="send-button" class="show-result" onclick="enviarRespostas()">Enviar Respostas</button>
+            <button id="reset-button" class="show-result" style="display:none;" onclick="resetQuiz()">Refazer Quiz</button>
+            <p id="result"></p>
+        </div>
+  
+    </div>
+
+    <script>
+        let campoPoints = 0;
+        let cidadePoints = 0;
+
+        function selectAnswer(button, tipo) {
+            const parent = button.parentElement;
+            const buttons = parent.querySelectorAll('button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+
+            button.classList.add('selected');
+
+            // Remove a contagem anterior, se havia
+            if (parent.dataset.selecionado) {
+                if (parent.dataset.selecionado === 'campo') {
+                    campoPoints--;
+                } else if (parent.dataset.selecionado === 'cidade') {
+                    cidadePoints--;
+                }
+            }
+
+            if (tipo === 'campo') {
+                campoPoints++;
+            } else if (tipo === 'cidade') {
+                cidadePoints++;
+            }
+
+            parent.dataset.selecionado = tipo;
+        }
+
+        function enviarRespostas() {
+            const totalRespondidas = document.querySelectorAll('[data-selecionado]').length;
+            const totalPerguntas = document.querySelectorAll('.question-box').length;
+
+            if (totalRespondidas < totalPerguntas) {
+                alert("Por favor, responda todas as perguntas antes de enviar.");
+                return;
+            }
+
+            const result = document.getElementById('result');
+            if (campoPoints > cidadePoints) {
+                result.innerHTML = "🌾 Você tem uma alma do campo! Ama a natureza, a paz e a simplicidade.";
+            } else if (cidadePoints > campoPoints) {
+                result.innerHTML = "🏙️ Você tem espírito urbano! Gosta da agitação, tecnologia e movimento da cidade.";
+            } else {
+                result.innerHTML = "🌆🌳 Você é equilibrado! Valoriza tanto o campo quanto a cidade.";
+            }
+
+            // Travar quiz após envio
+            const botoes = document.querySelectorAll('.question-box button');
+            botoes.forEach(botao => {
+                botao.disabled = true;
+            });
+
+            // Mostrar botão refazer e esconder enviar
+            document.getElementById('send-button').style.display = 'none';
+            document.getElementById('reset-button').style.display = 'inline-block';
+        }
+
+        function resetQuiz() {
+            // Resetar pontos
+            campoPoints = 0;
+            cidadePoints = 0;
+
+            // Limpar seleções e atributos
+            const botoes = document.querySelectorAll('.question-box button');
+            botoes.forEach(botao => {
+                botao.disabled = false;
+                botao.classList.remove('selected');
+            });
+
+            const perguntas = document.querySelectorAll('.question-box');
+            perguntas.forEach(pergunta => {
+                delete pergunta.dataset.selecionado;
+            });
+
+            // Limpar resultado
+            document.getElementById('result').innerHTML = '';
+
+            // Mostrar botão enviar e esconder refazer
+            document.getElementById('send-button').style.display = 'inline-block';
+            document.getElementById('reset-button').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
