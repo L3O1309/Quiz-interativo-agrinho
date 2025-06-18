@@ -1,0 +1,25 @@
+body {
+  background-color: #e6f4ea; /* verde bem claro */
+  color: #222222;
+}
+
+header, footer {
+  background-color: #2a5934; /* verde escuro */
+}
+
+#restart {
+  background-color: #2eb94c; /* verde vivo */
+}
+
+#restart:hover {
+  background-color: #2a5934;
+}
+
+#answers-box button:hover {
+  background-color: #2a5934;
+  color: #fff;
+}
+
+#answers-box .btn-letter {
+  background-color: #2a5934;
+}
